@@ -151,6 +151,55 @@ Unlike The virtual Machines where we have custom resources for Virtual Machines 
 
 
 
+## Networking .. Time !!!! 
+
+Will do my best but really if you want to do more go for this outstanding Presentation 
+
+https://www.youtube.com/watch?v=zmYxdtFzK6s
+
+## What is CNI?
+
+[CNI](https://github.com/containernetworking/cni) (Container Network Interface), a Cloud Native Computing Foundation project, consists of a specification and libraries for writing plugins to configure network interfaces in Linux containers, along with a number of supported plugins. CNI concerns itself only with network connectivity of containers and removing allocated resources when the container is deleted. Because of this focus, CNI has a wide range of support and the specification is simple to implement.
+
+CNI's are two major Categories 
+* Core Plugins 
+* 3rd Party Plugins
+
+### Sample Core Plugins
+* bridge(will be used in this Demo) : Creates a bridge, adds the host and the container to it.
+* macvlan: Creates a new MAC address, forwards all traffic to that to the container.
+* host-device: Move an already-existing device into a container.
+
+### Sample of 3rd Party Plugins
+* Calico (will be used in this Demo)
+* OVS and OVN (OpenShift default CNI)
+* VMWare NSX: a CNI plugin that enables automated NSX L2/L3 networking and L4/L7 Load Balancing; network
+* Cilium: (important plugin because it is using BPF): 
+* Amazon ECS CNI Plugins is a collection of Container Network Interface(CNI) Plugins used by the Amazon ECS Agent to configure network namespace of containers with Elastic Network Interfaces (ENIs)
+* Multus (will be used in this Demo)
+
+## How CNI works inside  Kubernetes.
+
+Reference CNI presentation
+https://speakerdeck.com/eranyanay/writing-a-cni-plugin-from-scratch?slide=14
+
+## Anatomy of Pod Networking
+
+https://speakerdeck.com/eranyanay/writing-a-cni-plugin-from-scratch?slide=21
+
+## MULTUS , why and What ?
+
+MULTUS is CNI plugins that enables other CNI's to attached to the POD
+![multi-homed](https://github.com/intel/multus-cni/raw/master/doc/images/multus-pod-image.svg)
+
+
+## Add Network attachement in Openshift
+
+
+
+
+
+
 
 
 
