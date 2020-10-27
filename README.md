@@ -147,6 +147,7 @@ Unlike The virtual Machines where we have custom resources for Virtual Machines 
 * Install OpenShift Virtualization
 * Create Hybrid Converged Cluster
 * Show how to enable disable emulation mode(Remember the accel before ;) )
+* Login to the node and check the qemu process running
 
 
 
