@@ -51,10 +51,10 @@ kind: VirtualMachineInstance
     cores: 2
    devices:
     disk: fedora29
-`"    
+```
 ### Looks Familiar
 
-`"
+```
 apiVersion: apps/v1
 kind: Deployment
 ...
@@ -73,7 +73,7 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
-`"
+```
 
 ## What does it mean?
 
@@ -97,11 +97,12 @@ QEMU Demo
 
 ```
 qemu-img.exe create -f qcow2 test.qcow2  5G
-`"
+
+
 ### Run the Linux and from iso and point it to the Disk 
 ```
 qemu-system-x86_64.exe -boot d -cdrom Fedora-Server-dvd-x86_64-32-1.6.iso -hda test.qcow2 -m 2048m -device bochs-display
-`"
+```
 
 ### What is KVM?
 
@@ -109,20 +110,20 @@ qemu-system-x86_64.exe -boot d -cdrom Fedora-Server-dvd-x86_64-32-1.6.iso -hda t
 
 Just add the following parameter.
 
-`"
+```
 --accel kvm
-`"
+```
 
 Because I am running on windows, I will use a similar technology called [Intel HAXM](https://github.com/intel/haxm)
-`"
+```
 --accel hax
-`"
+```
 
 The command will become 
 
 ```
 qemu-system-x86_64.exe -boot d -cdrom Fedora-Server-dvd-x86_64-32-1.6.iso -hda test.qcow2 -m 2048m -device bochs-display -accel hax
-`"
+```
 
 ## Looking again at Kubevirt Architecture 
 
