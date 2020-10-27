@@ -144,6 +144,31 @@ Unlike The virtual Machines where we have custom resources for Virtual Machines,
 
 ![storage](https://kubevirt.io/assets/2020-02-06-KubeVirt_deep_dive-virtualized_gpu_workloads/kubevirt_volumes.png)
 
+## Cotainerized Data Importer
+
+Containerized Data Importer (CDI) is a utility to import, upload and clone Virtual Machine images for use with KubeVirt. At a high level, a persistent volume claim (PVC), which defines VM-suitable storage via a storage class, is created.
+
+
+## Data Format
+
+Supported file formats are:
+* Tar archive
+* GZip Compressed file
+* XZ compressed file
+* Raw Image data
+* ISO Image data
+* Qemu qcow2 image data
+
+Note: qcow2 images are converted into the raw format which is required by KubeVirt, resulting in the final file being a simple .img file.
+
+## Cdi DataVolume
+
+DataVolumes are an abstraction of the Kubernetes resource, PVC (Persistent Volume Claim) and it also leverages other CDI features to ease the process of importing data into a Kubernetes cluster.
+
+
+![import](https://www.openshift.com/hs-fs/hubfs/cdi%20image.png?width=1535&name=cdi%20image.png)
+
+
 # Demo - Getting Start with OpenShift Virtualization 
 * Install OpenShift Virtualization
 * Create Hybrid Converged Cluster
