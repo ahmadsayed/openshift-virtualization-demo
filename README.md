@@ -197,7 +197,7 @@ https://speakerdeck.com/eranyanay/writing-a-cni-plugin-from-scratch?slide=14
 
 https://speakerdeck.com/eranyanay/writing-a-cni-plugin-from-scratch?slide=21
 
-## MULTUS , why and What ?
+## MULTUS .. MUL... What ?
 
 MULTUS is CNI plugins that enables other CNI's to attached to the POD
 ![multi-homed](https://github.com/intel/multus-cni/raw/master/doc/images/multus-pod-image.svg)
@@ -256,14 +256,42 @@ spec:
 3 - Check OpenShift Cluster a Network Attachement Definition is automatically created on OpenShift.
 
 
+## MULTUS Why?
+
+Sample Use Case RDQM and PaceMaker
+
+![RDQM](https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.con.doc/q130280a.gif)
+
+According to IBM Documentation  https://www.ibm.com/support/knowledgecenter/SSFKSJ_9.0.0/com.ibm.mq.con.doc/q130290_.htm
+
+rdqm.ini needs to configure as follow 
+```
+Node:
+  HA_Replication=192.168.4.1
+Node:
+  HA_Replication=192.168.4.2
+Node:
+  HA_Replication=192.168.4.3
+ 
+```
+HA Replication only accept IP, and using service Cluster IP always fails one approach as follow 
+1 - Use Multus to assign secondary NIC with fixed IP
+2 - Using Multus IP to configure the replication.
+3 - Primmary NIC to be used for North South communictation.
 
 
+## Migrating from VMware to Kubevirt 
 
-
-
-
-
-
+There are two approachs
+*  Download the VMDK from Datastore, and convert it manually using qemu-img 
+```
+qemu-img convert -f vmdk -O qcow2 linux.vmdk linux.qcow2
+```
+* V2V Migration from VCenter 
+  - Connect to VCenter 
+  - Request Migration.
+  
+  
 
 
 
