@@ -124,6 +124,31 @@ The command will become
 qemu-system-x86_64.exe -boot d -cdrom Fedora-Server-dvd-x86_64-32-1.6.iso -hda test.qcow2 -m 2048m -device bochs-display -accel hax
 ```
 
+## Looking again at Kubevirt Architecutre 
+
+
+![Simple](https://kubevirt.io/assets/2020-02-06-KubeVirt_deep_dive-virtualized_gpu_workloads/kubevirt_virtual_machine.png)
+
+The VM Launch flow is shown in the following diagram. Since the user posts a VM manifest to the cluster until the Kubelet spins up the VM pod. And finally the virt-handler instructs the virt-launcher how to launch the qemu.
+
+![nerdy](https://kubevirt.io/assets/2020-02-06-KubeVirt_deep_dive-virtualized_gpu_workloads/kubevirt_vm_launch_flow.png)
+
+
+
+## What about the Storage?
+
+Unlike The virtual Machines where we have custom resources for Virtual Machines Storage is exactly the same for Kubernetes
+* Persistence Volume.
+* Persistence Volume Claim.
+
+![storage](https://kubevirt.io/assets/2020-02-06-KubeVirt_deep_dive-virtualized_gpu_workloads/kubevirt_volumes.png)
+
+# Demo - Getting Start with OpenShift Virtualization 
+* Install OpenShift Virtualization
+* Create Hybrid Converged Cluster
+* Show how to enable disable emulation mode(Remember the accel before ;) )
+
+
 
 
 
