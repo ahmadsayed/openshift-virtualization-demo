@@ -97,7 +97,7 @@ QEMU Demo
 
 ```
 qemu-img.exe create -f qcow2 test.qcow2  5G
-
+```
 
 ### Run the Linux and from iso and point it to the Disk 
 ```
