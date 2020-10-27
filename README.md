@@ -291,8 +291,10 @@ qemu-img convert -f vmdk -O qcow2 linux.vmdk linux.qcow2
   - Connect to VCenter 
   - Request Migration.
   
-  
-
+### Demo 
+1 - Show the scenario (https://ibm.ent.box.com/file/734809040510)
+2 - During migration (https://ibm.ent.box.com/file/734806485988)
+3 - After Migration (https://ibm.ent.box.com/file/734804210369)
 
 
 
