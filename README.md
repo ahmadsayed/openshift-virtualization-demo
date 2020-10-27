@@ -149,8 +149,18 @@ Unlike The virtual Machines where we have custom resources for Virtual Machines 
 * Show how to enable disable emulation mode(Remember the accel before ;) )
 * Login to the node and check the qemu process running
 
+## Live Migration Demo
 
 
+* Workload needed to use RWX File Storage(Must)
+* Networking to use Masquerade(Must)
+* Using Attaced Disk not Container Disk
+
+### The Black Magic behind migrating Virtual machines in 4 seconds.
+
+![magic](https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/07/PRESTIGE-2.jpg)
+
+## Live Migration : that only the memory is copied from source to destination
 ## Networking .. Time !!!! 
 
 Will do my best but really if you want to do more go for this outstanding Presentation 
@@ -194,6 +204,62 @@ MULTUS is CNI plugins that enables other CNI's to attached to the POD
 
 
 ## Add Network attachement in Openshift
+
+The ‘NetworkAttachmentDefinition’ is used to setup the network attachment, i.e. secondary interface for the pod, There are two ways to configure the ‘NetworkAttachmentDefinition’ as following:
+
+* NetworkAttachmentDefinition with json CNI config ( Used in this Demo)
+* NetworkAttachmentDefinition with CNI config file
+
+### Sample Network Aattachement Defintion
+
+```
+apiVersion: k8s.cni.cncf.io/v1
+kind: NetworkAttachmentDefinition
+metadata:
+  name: test-network-2
+  namespace: default
+spec:
+  config: >-
+    { 
+		"cniVersion": "0.3.1", 
+		"name": "test-network-2", 
+		"type": "bridge", 
+		"ipam":
+			{
+				"type":"static", 
+				"addresses":[
+					{"address":"161.156.177.56/28"}
+				]
+			}
+	}
+ ```
+### Note: In OpenShift we do not create Network Attachement Defintion, we provide it as additional netwrok in OpenShift Operator
+
+Adding NetworkAttachement to OpenShift 
+
+1 - Run the following Command
+```
+oc edit networks.operator.openshift.io cluster
+```
+
+2 - Add Additional network as below 
+
+```
+spec:
+  additionalNetworks:
+  - name: test-network-1
+    namespace: default
+    rawCNIConfig: '{ "cniVersion": "0.3.1", "name": "test-network-1", "type": "bridge",
+      "ipam" :{"type":"static", "addresses":[{"address":"161.156.177.55/28"}]}}'
+    type: Raw
+```
+3 - Check OpenShift Cluster a Network Attachement Definition is automatically created on OpenShift.
+
+
+
+
+
+
 
 
 
