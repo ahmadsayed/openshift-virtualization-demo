@@ -1,5 +1,7 @@
 # Unboxing OpenShift Virtualization 
 
+![OSV](https://www.treehugger.com/thmb/igw08RvO8bJuh8a3o-hfgXhDDRo=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2014__11__shutterstock_1228700041-bbfc63e089da4d87b80ac438f9c1ee46.jpg)
+
 OpenShift Virtualization is Redhat OpenShift features based on Kubevirt.
 
 Before getting to what is kubevirt, let us answer what kubevirt is not.
