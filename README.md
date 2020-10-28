@@ -173,6 +173,9 @@ DataVolumes are an abstraction of the Kubernetes resource, PVC (Persistent Volum
 * Install OpenShift Virtualization
 * Create Hybrid Converged Cluster
 * Show how to enable or disable emulation mode(Remember the accel before ;) )
+```
+oc edit cm kubevirt-config -n openshift-cnv
+```
 * login to the node and check the qemu process running
 
 ## Live Migration Demo
