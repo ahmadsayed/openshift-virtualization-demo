@@ -306,9 +306,9 @@ Node:
  
 ```
 HA Replication only accept IP and using service Cluster IP always fails one approach as follow 
-1 - Use Multus to assign secondary NIC with fixed IP
-2 - Using Multus IP to configure the replication.
-3 - Primary NIC will handle North-South communication.
+* Use Multus to assign secondary NIC with fixed IP
+* Using Multus IP to configure the replication.
+* Primary NIC will handle North-South communication.
 
 
 ## Migrating from VMware to Kubevirt 
